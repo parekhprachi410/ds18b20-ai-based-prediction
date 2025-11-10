@@ -1,0 +1,21 @@
+DS18B20 LSTM Training Results
+========================================
+
+Training completed at epoch: 63
+Final training loss: 0.002843
+Final validation loss: 0.000010
+Final training MAE: 0.036752
+Final validation MAE: 0.002778
+
+Validation Metrics:
+MAE: 0.0513°C
+RMSE: 0.0623°C
+MAPE: 0.22%
+
+Model Configuration:
+Sequence length: 60
+Batch size: 32
+Training ratio: 0.8
+
+Dataset Info:
+Total samples: 2872

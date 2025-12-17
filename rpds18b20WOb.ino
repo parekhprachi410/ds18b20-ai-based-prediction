@@ -202,3 +202,4 @@ float make_prediction() {
   return scale_output(predict_temperature(scaled_seq));
 }
 
+

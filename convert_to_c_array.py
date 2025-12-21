@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-convert_to_c_array.py - Fixed version for TensorFlow compatibility
+convert_to_c_array.py - Fixed version
 """
 
 import tensorflow as tf
@@ -226,4 +226,5 @@ def main():
             weight_index += 1
 
 if __name__ == '__main__':
+
     main()

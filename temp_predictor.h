@@ -1,7 +1,6 @@
 #ifndef TEMP_PREDICTOR_H
 #define TEMP_PREDICTOR_H
 
-// LSTM Model Configuration
 #define SEQ_LEN 60
 #define INPUT_DIM 1
 #define LSTM1_UNITS 64
@@ -27,4 +26,5 @@ extern const float* model_weights[];
 extern const int num_weight_arrays;
 extern const int weight_sizes[];
 
-#endif // TEMP_PREDICTOR_H
+#endif 
+

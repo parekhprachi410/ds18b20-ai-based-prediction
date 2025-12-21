@@ -9,7 +9,7 @@ static LSTMState lstm1_state = {0};
 static LSTMState lstm2_state = {0};
 
 void lstm_init(void) {
-    // Initialize LSTM states
+    // Initialize states
     lstm1_state.hidden_state = (float*)calloc(LSTM1_UNITS, sizeof(float));
     lstm1_state.cell_state = (float*)calloc(LSTM1_UNITS, sizeof(float));
     
@@ -30,22 +30,22 @@ static void lstm_layer(const float* input, const float* kernel,
                       float* hidden_state, float* cell_state,
                       int input_dim, int units, int return_sequences) {
     
-    // Temporary arrays for gates
+    // for gates
     float gates[4 * units];
     
-    // Reset gates to bias values
+    // Reset bias values
     for (int i = 0; i < 4 * units; i++) {
         gates[i] = bias[i];
     }
     
-    // Input * kernel
+    
     for (int i = 0; i < 4 * units; i++) {
         for (int j = 0; j < input_dim; j++) {
             gates[i] += input[j] * kernel[j * (4 * units) + i];
         }
     }
     
-    // Hidden state * recurrent_kernel
+    
     for (int i = 0; i < 4 * units; i++) {
         for (int j = 0; j < units; j++) {
             gates[i] += hidden_state[j] * recurrent_kernel[j * (4 * units) + i];
@@ -71,13 +71,13 @@ float predict_temperature(const float* input_sequence) {
     float current_input[INPUT_DIM];
     float lstm1_output[LSTM1_UNITS];
     
-    // Reset LSTM states for new sequence
+    // Reset states for new seq
     memset(lstm1_state.hidden_state, 0, LSTM1_UNITS * sizeof(float));
     memset(lstm1_state.cell_state, 0, LSTM1_UNITS * sizeof(float));
     memset(lstm2_state.hidden_state, 0, LSTM2_UNITS * sizeof(float));
     memset(lstm2_state.cell_state, 0, LSTM2_UNITS * sizeof(float));
     
-    // Process sequence through first LSTM layer (with return_sequences=True)
+    // Process seq: first LSTM layer (return_sequences=True)
     for (int t = 0; t < SEQ_LEN; t++) {
         current_input[0] = input_sequence[t];
         
@@ -138,4 +138,5 @@ void lstm_cleanup(void) {
     free(lstm1_state.cell_state);
     free(lstm2_state.hidden_state);
     free(lstm2_state.cell_state);
+
 }

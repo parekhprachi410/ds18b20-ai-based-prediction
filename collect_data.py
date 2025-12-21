@@ -18,7 +18,7 @@ try:
         if not line or line.lower().startswith("timestamp"):
             continue  # Skip empty lines or header
         parts = line.split(',')
-        # Expecting format: timestamp,temperature
+        # Capturing format: timestamp,temperature
         if len(parts) == 2:
             try:
                 timestamp = float(parts[0])
@@ -42,3 +42,4 @@ if data:
     print(f"\n✅ Data saved to {filename} ({len(data)} rows).")
 else:
     print("\n⚠️ No data collected. Check ESP32 connection and serial output.")
+

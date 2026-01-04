@@ -2,9 +2,6 @@
 """
 train_ds18b20_model_with_plots_enhanced.py
 
-Enhanced LSTM training for DS18B20 temperature data with better validation,
-evaluation, and error handling.
-
 Usage:
     pip install tensorflow scikit-learn joblib pandas numpy matplotlib
     python train_ds18b20_model_with_plots_enhanced.py
@@ -442,4 +439,5 @@ def main():
         traceback.print_exc()
 
 if __name__ == '__main__':
+
     main()
